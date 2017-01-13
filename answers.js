@@ -1511,3 +1511,41 @@ function willItRain(array){
 
 
 console.log(willItRain(arrayPrecipType));
+
+
+
+///////////////////////////////////
+// Is it going to rain part 2
+
+var arrayPrecipTypeTwo = [];  //array to hold all hourly precipType 
+
+information.hourly.data.forEach(function(x){  //function to obtain all hourly precipType
+    arrayPrecipTypeTwo.push(x.precipType);
+});
+
+//var first8 = arrayPrecipTypeTwo.splice(0, 8);   // array to hold only the first 8 (8 hours) of info
+
+var first8 = arrayPrecipTypeTwo.filter(function(x){
+    return x < arrayPrecipTypeTwo[8];
+})
+
+
+function willItRainTwo (array){ //function that finds out if any item in array has the 
+    for(var i = 0; i < 24; i++){
+        if (array.indexOf("rain") > -1){            // rain in it. 
+            return true;
+        }
+        else {
+            return false
+        } 
+    }
+
+}
+console.log(first8)
+console.log(willItRainTwo(first8));     // Function returns false
+
+
+
+/////////////////////////////////////////////////////////
+// just give me the temperature
+
