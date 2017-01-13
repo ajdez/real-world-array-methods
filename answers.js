@@ -1494,10 +1494,10 @@ var information = {
 var arrayPrecipType = [];
 
 information.hourly.data.forEach(function(x){
-    arrayPrecipType.push(x.precipType);
+    arrayPrecipType.push(x.icon);
 });
 
-console.log(arrayPrecipType);
+//console.log(arrayPrecipType);
 
 
 function willItRain(array){
@@ -1520,7 +1520,7 @@ console.log(willItRain(arrayPrecipType));
 var arrayPrecipTypeTwo = [];  //array to hold all hourly precipType 
 
 information.hourly.data.forEach(function(x){  //function to obtain all hourly precipType
-    arrayPrecipTypeTwo.push(x.precipType);
+    arrayPrecipTypeTwo.push(x.icon);
 });
 
 //var first8 = arrayPrecipTypeTwo.splice(0, 8);   // array to hold only the first 8 (8 hours) of info
@@ -1541,11 +1541,52 @@ function willItRainTwo (array){ //function that finds out if any item in array h
     }
 
 }
-console.log(first8);
 console.log(willItRainTwo(first8));     // Function returns false
 
+///////////////////////////////////////////////////////
+//Question 3: Just give me the temperature
+/////////////////////////////////
 
+var temperatureArrays = [];
+
+information.hourly.data.forEach(function(x){
+    temperatureArrays.push(x);
+})
+
+var finalTempArray = temperatureArrays.map(function(x){
+    return x.temperature;
+})
+console.log(finalTempArray);
 
 /////////////////////////////////////////////////////////
 // just give me the temperature
 
+var arrayPrecipTypeThree = [];  //array to hold all hourly precipType 
+
+information.hourly.data.forEach(function(x){  //function to obtain all hourly precipType
+    arrayPrecipTypeThree.push(x);
+});
+
+var rainyArray = arrayPrecipTypeThree.filter(function(x){
+    return x.icon === "rain";
+})
+
+var rainyDates = rainyArray.map(function(x){
+    //console.log(x.time);
+    return new Date((parseInt(x.time)*1000));
+})
+
+console.log(rainyDates);
+
+
+/////////////
+// Is it going to be sunny all week?
+///////////
+
+var dailyArray = [];
+
+information.daily.data.forEach(function(x){
+    dailyArray.push(x);
+})
+
+console.log
