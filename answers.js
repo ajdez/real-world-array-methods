@@ -1589,4 +1589,49 @@ information.daily.data.forEach(function(x){
     dailyArray.push(x);
 })
 
-console.log
+var weekArray = dailyArray.slice(0, 7).map(function(x){
+    return x.summary;
+})
+
+function sunnyThisWeek(array){
+    return array.every(function(x){
+        if (x.includes("sun")){
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+}
+
+console.log(sunnyThisWeek(weekArray));
+
+///////////////////////
+// How hot will it be today?
+///////////////////////
+var hourlyData = [];
+
+information.hourly.data.forEach(function(x){
+    hourlyData.push(x.temperature);
+})
+
+var todaysData = hourlyData.slice(0,24);
+console.log(todaysData);
+
+var hotTempDay = todaysData.reduce(function(start, x){
+        if (x > start){
+            start = x;
+        }
+        return start;
+    }, -Infinity)
+    
+console.log(hotTempDay);
+
+
+///////////////////////////////
+// Stats on this week's weather
+/////////////////////////////
+
+
+
+
