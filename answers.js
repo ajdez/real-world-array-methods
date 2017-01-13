@@ -1525,8 +1525,8 @@ information.hourly.data.forEach(function(x){  //function to obtain all hourly pr
 
 //var first8 = arrayPrecipTypeTwo.splice(0, 8);   // array to hold only the first 8 (8 hours) of info
 
-var first8 = arrayPrecipTypeTwo.filter(function(x){
-    return x < arrayPrecipTypeTwo[8];
+var first8 = arrayPrecipTypeTwo.filter(function(x, index){
+    return index < 8;
 })
 
 
@@ -1541,7 +1541,7 @@ function willItRainTwo (array){ //function that finds out if any item in array h
     }
 
 }
-console.log(first8)
+console.log(first8);
 console.log(willItRainTwo(first8));     // Function returns false
 
 
